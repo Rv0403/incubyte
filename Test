@@ -1,0 +1,94 @@
+#Step 1: Create a function to represent Chandrayaanposition and direction.
+class Chandrayaan:
+    def __init__(self, start_x, start_y, start_z, start_direction):
+        self.position = (start_x, start_y, start_z)
+        self.direction = start_direction
+
+#Add the functionality to move Chandrayaan forward.
+
+    def move_forward(self):
+        x, y, z = self.position
+        if self.direction == "N":
+            self.position = (x, y + 1, z)
+        elif self.direction == "E":
+            self.position = (x + 1, y, z)
+        elif self.direction == "S":
+            self.position = (x, y - 1, z)
+        elif self.direction == "W":
+            self.position = (x - 1, y, z)
+
+#Add the functionality to move Chandrayaan backward.
+
+    def move_backward(self):
+        x, y, z = self.position
+        if self.direction == "N":
+            self.position = (x, y - 1, z)
+        elif self.direction == "E":
+            self.position = (x - 1, y, z)
+        elif self.direction == "S":
+            self.position = (x, y + 1, z)
+        elif self.direction == "W":
+            self.position = (x + 1, y, z)
+
+#Add the functionality to turn Chandrayaan right.
+
+    def turn_right(self):
+        if self.direction == "N":
+            self.direction = "E"
+        elif self.direction == "E":
+            self.direction = "S"
+        elif self.direction == "S":
+            self.direction = "W"
+        elif self.direction == "W":
+            self.direction = "N"
+            
+#Add the functionality to turn Chandrayaan 3 left.
+    def turn_left(self):
+        if self.direction == "N":
+            self.direction = "W"
+        elif self.direction == "W":
+            self.direction = "S"
+        elif self.direction == "S":
+            self.direction = "E"
+        elif self.direction == "E":
+            self.direction = "N"
+
+#Add the functionality to move Chandrayaan up.
+    def move_up(self):
+        x, y, z = self.position
+        self.position = (x, y , z + 1)
+
+#Add the functionality to move Chandrayaan up.
+    def move_down(self):
+        x, y, z = self.position
+        self.position = (x, y, z - 1)
+#Action we want to take 
+print("Enter the Inital Cordinate and position Of Chandrayaan")
+start_x=int(input("Enter X cordinate : "))
+start_y=int(input("Enter Y cordinate : "))
+start_z=int(input("Enter Z cordinate : "))
+
+start_direction=input("Enter Direction N,S,E,W : ")
+chandrayaan = Chandrayaan(start_x, start_y, start_z, start_direction)
+print(f"f = Forwarsd \nr = Right \nu = Up \nb = Backward \nl = Left \nd = Down\n")
+for command in range(100):
+    if chandrayaan.position==(0, 1, -1):break    
+    command = input("\nEnter your Command: ")
+    if command == "f":
+        chandrayaan.move_forward()
+    elif command == "r":
+        chandrayaan.turn_right()
+    elif command == "u":
+        chandrayaan.move_up()
+    elif command == "b":
+        chandrayaan.move_backward()
+    elif command == "l":
+        chandrayaan.turn_left()
+    elif command == "d":
+        chandrayaan.move_down()
+    else:
+        raise ValueError(f"Invalid command: {command}")
+    Chandrayaan(start_x, start_y, start_z, start_direction)==chandrayaan.position
+        
+    print("Position:", chandrayaan.position)
+    print("Direction:", chandrayaan.direction)
